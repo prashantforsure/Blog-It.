@@ -28,8 +28,8 @@ export const authOptions: AuthOptions = {
               email: user.email!,
               name: user.name ?? null,
               image: user.image ?? null,
-              password: ""
-            
+              password: "",
+              username: 
             },
           });
         }

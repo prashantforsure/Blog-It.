@@ -60,8 +60,11 @@ export async function POST(request: Request){
   }
   const { title, content, excerpt, tags, notionPageId } = await request.json();
   try{
-   // yo yo this is the blog that... 
-   // wait a minute
+
+   //  this is the code which helps us to create the blog..
+   // and dune part 2 was the best fucking movie of the 2024
+   // and fuck you oscars like fr no cap period
+
     const blog = await prisma.blog.create({
       data: {
         title,

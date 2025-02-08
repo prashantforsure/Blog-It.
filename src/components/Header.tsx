@@ -42,7 +42,7 @@ export default function Header() {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <Feather className="h-8 w-8 " />
-            <span className="ml-2 text-xl font-bold text-gradient-to-r from-blue-600 to-purple-600" style={{ fontFamily: '"Agatha", cursive' }}>Daily Journee</span>
+            <span className="ml-2 text-xl font-bold text-gradient-to-r from-blue-600 to-purple-600" style={{ fontFamily: '"Agatha", cursive' }}>Blog It.</span>
           </Link>
           <div className="flex items-center space-x-6">
             

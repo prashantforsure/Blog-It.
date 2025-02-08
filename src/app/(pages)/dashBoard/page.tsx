@@ -1,9 +1,38 @@
-import React from 'react'
+import { getServerSession } from "next-auth/next"
 
-const page = () => {
+import { redirect } from "next/navigation"
+
+import Navbar from "@/components/Navbar"
+import prisma from "@/lib/prisma"
+import { authOptions } from "@/lib/auth/auth"
+import NotionConnect from "@/components/NotionConnect"
+
+
+export default async function Dashboard() {
+  const session = await getServerSession(authOptions)
+
+  if (!session) {
+    redirect("/signin")
+  }
+
+  const notionToken = await prisma.notionToken.findUnique({
+    where: { userId: session.user.id },
+  })
+
   return (
-    <div>page</div>
+    <div className="min-h-screen bg-gray-100">
+      <Navbar session={session} />
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
+        {notionToken ? (
+          <div>
+            <p className="text-green-600 mb-4">Your Notion account is connected!</p>
+            {/* Add components for managing blog posts here */}
+          </div>
+        ) : (
+          <NotionConnect />
+        )}
+      </main>
+    </div>
   )
 }
-
-export default page

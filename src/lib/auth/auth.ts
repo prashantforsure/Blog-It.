@@ -29,7 +29,7 @@ export const authOptions: AuthOptions = {
               name: user.name ?? null,
               image: user.image ?? null,
               password: "",
-              username: 
+              username: user.email ?? null
             },
           });
         }

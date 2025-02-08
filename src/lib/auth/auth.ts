@@ -50,7 +50,7 @@ export const authOptions: AuthOptions = {
     },
     redirect({ baseUrl }) {
 
-      return `${baseUrl}/dashboard`;
+      return `${baseUrl}/`;
     },
   },
   pages: {

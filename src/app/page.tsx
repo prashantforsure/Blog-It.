@@ -1,7 +1,9 @@
-import Image from "next/image";
+import Home1 from "@/components/HomePage";
 
-export default function Home() {
-  return (
-    <div></div>
-  );
+export default function Home(){
+  return(
+    <>
+    <Home1 />
+    </>
+  )
 }

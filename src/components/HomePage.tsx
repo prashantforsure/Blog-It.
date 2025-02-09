@@ -13,7 +13,7 @@ export default async  function Home1() {
   const session = await getServerSession(authOptions)
 
   if (!session) {
-    redirect("/signin")
+    redirect("/auth/signin")
   }
 
   const notionToken = await prisma.notionToken.findUnique({

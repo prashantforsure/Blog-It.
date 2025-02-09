@@ -1,10 +1,13 @@
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/lib/auth"
+
 import { redirect } from "next/navigation"
-import { prisma } from "@/lib/prisma"
+
 import Navbar from "@/components/Navbar"
-import PostEditor from "@/components/dashboard/PostEditor"
-import NotionImport from "@/components/dashboard/NotionImport"
+import { authOptions } from "@/lib/auth/auth"
+import prisma from "@/lib/prisma"
+import PostEditor from "@/components/PostEditor"
+import NotionImport from "@/components/NotionImport"
+
 
 export default async function EditPost({ params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions)
@@ -16,7 +19,7 @@ export default async function EditPost({ params }: { params: { id: string } }) {
   const post =
     params.id === "new"
       ? null
-      : await prisma.blogPost.findUnique({
+      : await prisma.blog.findUnique({
           where: { id: params.id },
         })
 
